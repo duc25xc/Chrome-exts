@@ -1,0 +1,2 @@
+"# Chrome-exts" 
+block ads
