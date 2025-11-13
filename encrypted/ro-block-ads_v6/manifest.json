@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Rophim Ad Blocker",
+  "version": "1.2",
+  "description": "Chặn quảng cáo Rophim - ducOwO",
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon16.png"
+  },
+  
+  "permissions": [
+    "storage",
+    "notifications",
+    "tabs",       
+    "scripting",     
+    "activeTab",
+    "declarativeNetRequest" 
+  ],
+  
+  "host_permissions": [
+    "*://*.rophim.li/*",       
+    "*://*.goatembed.com/*"    
+  ],
+
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_ads",
+        "enabled": true,
+        "path": "rules.json" 
+      }
+    ]
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.rophim.li/*",
+        "*://*.goatembed.com/*" 
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start" 
+    }
+  ]
+}
