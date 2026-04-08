@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AdBlocker Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+      /* ... CSS cũ ... */
+      body {
+        width: 300px;
+        font-family: 'Poppins', 'Inter', Arial, sans-serif;
+        padding: 10px;
+      }
+      h4 {
+        margin: 10px 0 5px 0;
+        color: #333;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 3px;
+      }
+      .toggle-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        margin-bottom: 10px;
+      }
+      .toggle-btn {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+      }
+      .enabled {
+        background-color: #4caf50; 
+        color: white;
+      }
+      .disabled {
+        background-color: #f44336; 
+        color: white;
+      }
+      .info-stat {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+      }
+      .info-stat span {
+        font-weight: bold;
+        color: #007bff;
+      }
+      #log-list {
+        max-height: 150px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        padding: 5px;
+        list-style: none;
+        margin: 0;
+      }
+      #log-list li {
+        padding: 3px 0;
+        border-bottom: 1px dotted #eee;
+        font-size: 0.8em;
+      }
+      .total-count {
+        font-weight: bold;
+        color: green;
+      }
+      .footer-section {
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        text-align: center;
+        font-size: 0.75em;
+        color: #777;
+        /* Đã chỉnh sửa: Dùng Flexbox để căn giữa các nút */
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+      }
+      .action-buttons { /* Class mới để nhóm 2 nút hành động */
+        display: flex;
+        gap: 10px; /* Khoảng cách giữa các nút */
+        margin-bottom: 10px;
+      }
+      .support-btn, .movie-btn {
+        background-color: #fff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none; 
+        font-size: 0.9em; /* Tăng kích thước font một chút cho nút */
+      }
+      .support-btn {
+        border: 1px solid red;
+        color: red;
+      }
+      /* CSS CHO NÚT MỚI */
+      .movie-btn {
+        border: 1px solid #007bff;
+        background-color: #007bff;
+        color: white;
+      }
+      .support-btn i, .movie-btn i {
+        margin-right: 5px;
+      }
+      /* ... CSS cũ ... */
+    </style>
+  </head>
+  <body>
+    <div class="toggle-section">
+      <h4 style="border-bottom: none">🛡️ AdBlocker Status</h4>
+      <button id="toggleAdBlock" class="toggle-btn">Đang Tải...</button>
+    </div>
+
+    <div class="info-stat">
+      Tên miền hiện tại: <span id="currentDomain">Đang tải...</span>
+    </div>
+
+    <p class="info-stat">
+      Tổng số QC đã đóng: <span id="totalCount" class="total-count">0</span>
+    </p>
+    <ul id="log-list">
+      <li>Đang tải...</li>
+    </ul>
+
+    <div class="footer-section">
+        <div class="action-buttons">
+            <a
+                href="https://www.rophim.li/phimhay"
+                target="_blank"
+                class="movie-btn"
+            >
+                <i class="fa-solid fa-film"></i>
+                Xem Phim Ngay
+            </a>
+
+            <a
+                href="https://www.facebook.com/haduc.25.09"
+                target="_blank"
+                class="support-btn"
+            >
+                <i class="fa-brands fa-facebook-messenger"></i>
+                Hỗ trợ / Báo lỗi
+            </a>
+        </div>
+        <p>
+        Dev by ducOwO |
+        <a
+          href="https://github.com/haduc25"
+          target="_blank"
+          style="color: #007bff; text-decoration: none"
+          >GitHub</a
+        >
+      </p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
